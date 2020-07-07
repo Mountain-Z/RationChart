@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #banner {
+        margin: auto;
+        height: 313px;
+        width: 500px;
+        outline: 5px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="banner"></div>
+    <img src="" alt="" />
+    <script src="./RatationChart.js"></script>
+    <script>
+      const Obj = document.getElementById("banner");
+      createRationChart(Obj, [
+        { url: "./img/test12_1.jpg" },
+        { url: "./img/test12_2.jpg" },
+        { url: "./img/test12_4.jpg" },
+      ]);
+    </script>
+  </body>
+</html>
