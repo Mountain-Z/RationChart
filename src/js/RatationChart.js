@@ -14,6 +14,7 @@ function createRationChart(Obj, options) {
   setStatus();
   autoChange();
 
+  //初始化图片区域
   function initImg() {
     imgArea.style.width = "500px";
     imgArea.style.height = "313px";
@@ -39,6 +40,7 @@ function createRationChart(Obj, options) {
     Obj.appendChild(imgArea);
   }
 
+  //设置角标
   function initNum() {
     numArea.style.textAlign = "center";
     numArea.style.marginTop = "-25px";
@@ -61,13 +63,14 @@ function createRationChart(Obj, options) {
     Obj.appendChild(numArea);
   }
 
+  //设置轮播图状态
   function setStatus() {
     //设置角标背景
     for (let i = 0; i < len; i++) {
       if (i == currentIndex) {
-        numArea.children[i].style.backgroundColor = "black";
+        numArea.children[i].style.backgroundColor = "#ff6100";
       } else {
-        numArea.children[i].style.backgroundColor = "red";
+        numArea.children[i].style.backgroundColor = "#c0c0c0";
       }
     }
 
