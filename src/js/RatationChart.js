@@ -3,6 +3,7 @@ function createRationChart(Obj, options) {
   let imgArea = document.createElement("div");
   //角标区域
   let numArea = document.createElement("div");
+  //设置索引值
   let currentIndex = 0;
   let len = options.length;
   let changeDuration = 1000;
@@ -44,7 +45,8 @@ function createRationChart(Obj, options) {
   function initNum() {
     numArea.style.textAlign = "center";
     numArea.style.marginTop = "-25px";
-    for (let i in options) {
+    for (let i = 0; i < len; i++) {
+      //设置角标样式
       let span = document.createElement("span");
       span.style.height = "12px";
       span.style.width = "12px";
@@ -53,11 +55,13 @@ function createRationChart(Obj, options) {
       span.style.margin = "0 7px";
       span.style.backgroundColor = "red";
       span.style.cursor = "pointer";
+      //监听点击事件
       span.addEventListener("click", function () {
         currentIndex = i;
         setStatus();
         clearInterval(Timer);
       });
+
       numArea.appendChild(span);
     }
     Obj.appendChild(numArea);
@@ -77,15 +81,16 @@ function createRationChart(Obj, options) {
     let start = parseInt(imgArea.children[0].style.marginLeft);
     console.log(imgArea.children[0].style.marginLeft);
     let end = currentIndex * -100;
-    let dis = end - start;
+    let dis = end - start; //计算图片滚动距离
     let duration = 500;
-    let speed = dis / duration;
+    let speed = dis / duration; //图片滚动速度
     if (changeTimer) {
       clearInterval(changeTimer);
     }
     changeTimer = setInterval(function () {
       start += speed * 20;
       imgArea.children[0].style.marginLeft = start + "%";
+
       if (Math.abs(end - start) < 1) {
         imgArea.children[0].style.marginLeft = end + "%";
         clearInterval(changeTimer);
@@ -96,6 +101,7 @@ function createRationChart(Obj, options) {
     // imgArea.children[0].style.marginLeft = imgShift + "%";
   }
 
+  //图片自动切换
   function autoChange() {
     if (Timer) {
       return;
